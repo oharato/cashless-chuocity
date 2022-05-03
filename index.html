@@ -32,6 +32,12 @@
         <span v-if="props.column.field == 'address'">
           <a :href="mapUrl(props.row)" target="_blank">{{props.row.address}}</a>
         </span>
+        <span v-else-if="props.column.field == 'payment'">
+          {{props.row.isAupay ? 'A' : ''}}
+          {{props.row.isDbarai ? 'D' : ''}}
+          {{props.row.isPaypay ? 'P' : ''}}
+          {{props.row.isRakutenpay ? 'R' : ''}}
+        </span>
         <span v-else>
           {{props.formattedRow[props.column.field]}}
         </span>

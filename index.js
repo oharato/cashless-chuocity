@@ -5,11 +5,6 @@ const app = new Vue({
   data:{
     columns: [
       {
-        label: '番号',
-        field: 'number',
-        type: 'number',
-      },
-      {
         label: '店名',
       　field: 'storeName',
       },
@@ -84,24 +79,8 @@ const app = new Vue({
         field: 'address',
       },
       {
-        label: 'au PAY',
-        field: 'isAupay',
-        formatFn: isAvailable,
-      },
-      {
-        label: 'd払い',
-        field: 'isDbarai',
-        formatFn: isAvailable,
-      },
-      {
-        label: 'PayPay',
-        field: 'isPaypay',
-        formatFn: isAvailable,
-      },
-      {
-        label: '楽天ペイ',
-        field: 'isRakutenpay',
-        formatFn: isAvailable,
+        label: '支払',
+        field: 'payment',
       },
     ],
     rows: [
@@ -120,5 +99,3 @@ const app = new Vue({
   }
 
 });
-function isAvailable(x){ return x ? '〇' : ''};
-
