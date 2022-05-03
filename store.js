@@ -18,7 +18,7 @@ class Store {
     this.isDbarai = isDbarai == '●';
     this.isPaypay = isPaypay == '●';
     this.isRakutenpay = isRakutenpay == '●';
-    this.genre = genre;
+    this.genre = genre.trim();
   }
 
 }
