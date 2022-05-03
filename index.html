@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中央区20%還元</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+    body{
+      grid-template-columns: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <h1>中央区20%還元</h1>
+    <div>
+      <label style="line-height: 2.5rem;">絞込：<input v-model="filter" type="text" style="display: inline-block;"></label>
+      {{filteredStores.length}}件
+    </div>
+    <div>
+      <label><input type="checkbox" v-model="isAupay">au Pay</label>
+      <label><input type="checkbox" v-model="isDbarai">d払い</label>
+      <label><input type="checkbox" v-model="isPaypay">PayPay</label>
+      <label><input type="checkbox" v-model="isRakutenpay">楽天Pay</label>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>番号</th>
+          <th>店名</th>
+          <th>町名</th>
+          <th>ジャンル</th>
+          <th>住所</th>
+          <th>au Pay</th>
+          <th>d払い</th>
+          <th>PayPay</th>
+          <th>楽天ペイ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(store,i) in filteredStores" :key="i">
+          <td>{{store.number}}</td>
+          <td>{{store.storeName}}</td>
+          <td>{{store.townName}}</td>
+          <td>{{store.genre}}</td>
+          <td><a :href="mapUrl(store)" target="_blank">{{store.address}}</a></td>
+          <td>{{store.isAupay | isAvailable}}</td>
+          <td>{{store.isDbarai | isAvailable}}</td>
+          <td>{{store.isPaypay | isAvailable}}</td>
+          <td>{{store.isRakutenpay | isAvailable}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
+  <script src="store.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
